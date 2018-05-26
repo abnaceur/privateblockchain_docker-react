@@ -6,7 +6,7 @@ Private-blockchain_dev
 Get the source:
 
 ```bash
-git clone https://me-me@bitbucket.org/me-me/blockchain-docker.git
+git clone https://me-me@bitbucket.org/me-me/privateblockchain_docker-react.git
 ```
 
 Edit your `/etc/hosts` file:
@@ -33,10 +33,35 @@ Note: the port 80 must not be used by another application (like Apache or Skype)
 P.S: The build may take some time don't worry be happy and grab a cup of tea :)
 
 
+Build the front : 
+
 ```bash
-# Start meteor on port 80.
-docker exec -d dev_dapp  sh -c "cd /var/www/html && sudo meteor --unsafe-perm --port 80"
+# Navigate to app
+cd app
 ```
+
+Then 
+
+```bash
+# Install all dependencies
+npm install
+```
+
+Create a symbolic link for bundle.js
+
+```bash
+# Install all dependencies
+sudo ln app/public/bundle.js assets/js/bundle.js
+```
+
+Create a symbolic link for the index file
+
+```bash
+# Install all dependencies
+sudo ln /public/index.html index.html
+```
+
+### Interact with your private blockchain
 
 ```bash
 # Now attach geth to your bootstrap node 
